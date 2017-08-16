@@ -36,7 +36,7 @@ namespace RecordConstructorGenerator
         {
             // property
             var p = context.Symbol as IPropertySymbol;
-            if (p == null) return;
+            if (p == null || p.IsStatic) return;
 
             var ps = p.DeclaringSyntaxReferences.First().GetSyntax() as PropertyDeclarationSyntax;
             if (ps == null) return;
